@@ -1,0 +1,22 @@
+on: 
+  push:
+    branches:
+      - 'master'
+  workflow_dispatch:
+env:
+  DATABASE_URI_DEV: ${{ secrets.DATABASE_URI_DEV }}
+jobs:
+  TEST_FLASK_APPLICATION:
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Execute script
+        run: |
+          npm start 
+
+
+
+            
